@@ -1,0 +1,23 @@
+﻿@model ImagsProj1.Models.upload1
+
+@using (Html.BeginForm("SaveImages", "Home",FormMethod.Post,new { enctype="multipart/form-data"}))
+
+{
+    <div>
+        @Html.TextBox("UploadImages","",new  {type="File" })
+
+        <input type="submit" value="Upload" />
+    </div>
+
+    @ViewBag.upload
+    @ViewBag.error
+}
+
+
+@if (Model != null) { 
+
+    <img style="width:300px;width:200px" src="@Url.Content("~/UploadImages/" +Model.image)" />
+ }
+
+
+
